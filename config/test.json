@@ -1,0 +1,15 @@
+{
+  "bleep": {
+    "showStart": false
+  },
+  "cache": {
+    "engine": "catbox-memory"
+  },
+  "port": 3001,
+  "squeeze": {
+    "args": [{
+      "error": "*",
+      "logs": "*"
+    }]
+  }
+}
