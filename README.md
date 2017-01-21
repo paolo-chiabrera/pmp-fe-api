@@ -1,6 +1,6 @@
 # pmp-fe-api
 
-pmp-api-fe
+pmp-fe-api
 
 
 ## Usage

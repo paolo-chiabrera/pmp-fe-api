@@ -95,7 +95,7 @@ server.route({
 		auth: false,
 		handler: (request, reply) => {
 			reply({
-				message: 'Welcome to PMP-FE API.',
+				name: Pack.name,
 				version: Pack.version
 			});
 		}
