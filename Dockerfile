@@ -17,4 +17,4 @@ WORKDIR /home/app
 
 ADD . /home/app
 
-CMD pm2 start /home/app/index.js --name app && pm2 save && pm2 logs
+CMD pm2 start /home/app/index.js -i 2 --name app && pm2 save && pm2 logs
