@@ -22,8 +22,8 @@ lab.experiment('image.method', () => {
 
     lab.test('it should return a promise', (done) => {
       const prom = methods.getPage({
-        page: 1,
-        limit: 20
+        pageNum: 0,
+        pageSize: 20
       });
 
       expect(prom).to.be.an.object();

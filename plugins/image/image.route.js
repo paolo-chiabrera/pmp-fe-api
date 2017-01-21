@@ -9,8 +9,8 @@ module.exports.getPage = {
   config: {
     handler: (req, reply) => {
       req.server.methods.getPage({
-        page: req.params.pageNum,
-        limit: req.params.pageSize
+        pageNum: req.params.pageNum,
+        pageSize: req.params.pageSize
       }, (err, result) => reply(err || result));
     },
     cache: {
@@ -23,7 +23,7 @@ module.exports.getPage = {
     notes: 'Returns the page',
     validate: {
       params: {
-        pageNum: Joi.number().integer().min(1).default(1).required().description('page number'),
+        pageNum: Joi.number().integer().min(0).default(0).required().description('page number'),
         pageSize: Joi.number().integer().min(10).default(20).optional().description('page size')
       }
     }

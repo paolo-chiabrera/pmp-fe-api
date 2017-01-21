@@ -21,7 +21,9 @@ exports.register = function (server, options, next) {
         expiresIn: 60 * 60 * 1000,
         generateTimeout: 10000
       },
-      generateKey: args => 'page_' + args.page + '_' + args.limit
+      generateKey: function (args) {
+				return 'page_' + args.pageNum + '_' + args.pageSize;
+			}
     }
   });
 

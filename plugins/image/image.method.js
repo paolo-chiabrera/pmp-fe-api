@@ -10,24 +10,25 @@ module.exports = {
 
 /* methods */
 function getPage(args) {
-  return Image.paginate({
-    sortIndex: {
-      $gt: -1
-    }
-  }, {
-    lean: true,
-    leanWithId: false,
-    limit: args.limit,
-    page: args.page,
-    select: {
-      _id: 0,
-      filename: 1,
-      meta: 1,
-      thumbs: 1,
-      sortIndex: 1
-    },
-    sort: {
-      sortIndex: 1
-    }
-  });
+	const { pageNum, pageSize} = args;
+	const FROM = pageNum * pageSize;
+	const TO = FROM + pageSize;
+
+	return Image
+	.find({
+		'sortIndex': {
+			$gte: FROM,
+			$lt: TO
+		}
+	}, {
+		'filename': 1,
+		'meta': 1,
+		'thumbs': 1,
+		'sortIndex': 1,
+		'_id': 0
+	})
+	.sort({
+		'sortIndex': 1
+	})
+  .exec();
 }
