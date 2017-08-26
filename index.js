@@ -43,7 +43,7 @@ const redisClient = redis.createClient({
 
 const apicache = require('apicache');
 const cache = apicache.options({
-    redisClient
+    redisClient: config.env !== 'test' ? redisClient : null
 }).middleware;
 
 const {
