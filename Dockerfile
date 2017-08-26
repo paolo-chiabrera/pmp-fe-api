@@ -1,20 +1,19 @@
-FROM node:6
+FROM node:8-alpine
 
 MAINTAINER Paolo Chiabrera <paolo.chiabrera@gmail.com>
 
-ENV PM2_HOME /home/app/.pm2
-
-# use changes to package.json to force Docker not to use the cache
-# when we change our application's nodejs dependencies:
-
 ADD package.json /tmp/package.json
 
-RUN cd /tmp && npm install pm2@latest -g && npm install --production
+ADD yarn.lock /tmp/yarn.lock
+
+RUN apk add --no-cache make gcc g++ python
+
+RUN cd /tmp && yarn install
 
 RUN mkdir -p /home/app && cp -a /tmp/node_modules /home/app
 
-WORKDIR /home/app
-
 ADD . /home/app
 
-CMD pm2 start /home/app/index.js -i 2 --name app && pm2 save && pm2 logs
+WORKDIR /home/app
+
+CMD yarn start

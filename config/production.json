@@ -1,7 +1,3 @@
 {
-  "cache": {
-    "engine": "catbox-redis",
-    "shared": true
-  },
 	"trace": true
 }

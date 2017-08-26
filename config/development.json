@@ -1,1 +1,5 @@
-{}
+{
+    "redis": {
+        "host": "pmp-fe-redis"
+    }
+}

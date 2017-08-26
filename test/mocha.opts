@@ -1,0 +1,7 @@
+--recursive
+--reporter spec
+--bail
+--check-leaks
+--ui bdd
+--require test/support/
+test/**/*.test.js
