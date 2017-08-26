@@ -36,14 +36,19 @@ if (config.env !== 'test') {
 * define cache
 */
 const redis = require('redis');
-const redisClient = redis.createClient({
-    host: config.redis.host,
-    password: config.redis.password
-});
+let redisClient = null;
+
+if (config.env !== 'test') {
+    redisClient = redis.createClient({
+        host: config.redis.host,
+        password: config.redis.password
+    });
+}
+
 
 const apicache = require('apicache');
 const cache = apicache.options({
-    redisClient: config.env !== 'test' ? redisClient : null
+    redisClient
 }).middleware;
 
 const {
