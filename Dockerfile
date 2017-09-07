@@ -16,4 +16,4 @@ ADD . /home/app
 
 WORKDIR /home/app
 
-CMD yarn start
+CMD node cluster.js

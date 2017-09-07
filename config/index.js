@@ -27,19 +27,19 @@ const conf = convict({
   port: {
     doc: 'The port to bind.',
     format: 'port',
-    default: 9000,
+    default: 3000,
     env: 'PORT'
   },
   redis: {
     host: {
       doc: 'The redis host.',
       default: 'redis',
-      env: 'PMP_REDIS_1_PORT_6379_TCP_ADDR'
+      env: 'PMP_REDIS_HOST'
     },
     password: {
       doc: 'The redis password.',
       default: false,
-      env: 'PMP_REDIS_ENV_REDIS_PASS'
+      env: 'PMP_REDIS_PASS'
     }
   },
 	trace: {
@@ -51,7 +51,7 @@ const conf = convict({
     file: {
       filename: {
         doc: 'The log filename.',
-        default: '/var/logs/nodejs/pmp/pmp_fe_api.log',
+        default: '/logs/pmp_fe_api.log',
         env: 'NODE_WINSTON_FILENAME'
       }
     }

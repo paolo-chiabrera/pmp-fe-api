@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start ecosystem.config.js && pm2 logs",
+    "start": "node index.js",
     "test": "env NODE_ENV=test mocha"
   },
   "repository": {
@@ -36,7 +36,6 @@
     "convict": "^2.0.0",
     "mongoose": "^4.11.8",
     "morgan": "^1.8.2",
-    "pm2": "^2.6.1",
     "pmp-image-model": "0.1.0",
     "redis": "^2.8.0",
     "restify": "^5.2.0",
