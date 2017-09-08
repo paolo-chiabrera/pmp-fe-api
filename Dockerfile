@@ -2,6 +2,8 @@ FROM node:8-alpine
 
 MAINTAINER Paolo Chiabrera <paolo.chiabrera@gmail.com>
 
+ENV NODE_ENV=production
+
 ADD package.json /tmp/package.json
 
 ADD yarn.lock /tmp/yarn.lock
